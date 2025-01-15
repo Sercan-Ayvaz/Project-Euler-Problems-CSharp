@@ -1,0 +1,54 @@
+/*
+------Largest Prime Factor------
+The prime factors of 13195 are 5,7,13 and 29.
+What is the largest prime factor of the number 600851475143?
+*/
+
+using System;
+
+namespace ConsoleApp1
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            List<int> primeFactor = new List<int> { };
+            List<int> primeFactorList = new List<int> { };
+            long number = 600851475143;
+
+            for (int i = 2; i < 1000000; i++)
+            {
+                if (i == 2)
+                {
+                    if ((i / 1 == i) && (i / i == 1) && (i % 2 == 0))
+                    {
+                        primeFactorList.Add(i);
+                    }
+                }
+                else if ((i / 1 == i) && (i / i == 1) && (i % 2 == 1))
+                {
+                    primeFactorList.Add(i);
+                }
+            }
+
+            foreach (var item in primeFactorList)
+            {
+                while (number % item == 0)
+                {
+                    number = number / item;
+                    primeFactor.Add(item);
+                    if (number == 1)
+                    {
+                        break;
+                    }
+                }
+            }
+            foreach (var item in primeFactor)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nThe greatest value: " + Convert.ToString(primeFactor.Max()));
+        }
+    }
+}
