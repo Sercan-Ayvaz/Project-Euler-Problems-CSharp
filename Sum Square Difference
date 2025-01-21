@@ -1,0 +1,30 @@
+/*
+--------------Sum Square Difference--------------
+The sum of the squares of the first ten natural numbers is,
+    1²+2²+3²+.......+10²=385
+The square of the sum of the first ten natural numbers is,
+    (1+2+3+....+10)²=55²=3025
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is .
+    3025-385=2640
+Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum. 
+*/
+class MyClass
+{
+    private static int SumSquare(int item)
+    {
+        return item * item;
+    }
+    static void Main(string[] args)
+    {
+        int sum = 0;
+        int total = 0;
+        for (int i = 1; i <= 100; i++)
+        {
+            sum += SumSquare(i);
+            total += i;
+        }
+        Console.WriteLine(sum);
+        Console.WriteLine(SumSquare(total));
+        Console.WriteLine(SumSquare(total)-sum);
+    }
+}
